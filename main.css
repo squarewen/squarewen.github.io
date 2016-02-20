@@ -335,12 +335,12 @@ pre.line-numbers>code{position:relative}
 /*  */
 
 body { 
-	 margin: 0;
+	margin: 0;
 	font-family: Georgia,serif;
 }
 .main {
 	margin: 0 auto;
-	width: 600px;
+	width: 1000px;
 	position: relative;
 }
 #disqus_thread {
