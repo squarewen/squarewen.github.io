@@ -1,1 +1,12 @@
-{"name":"squarewen","number_of_posts_per_page":7,"disqus_shortname":"","posts":[{"title":"hello world","date":"2016-02-18","tags":"test","path":"hello.html"}],"pages":[]}
+{
+	"name": "squarewen",
+	"number_of_posts_per_page": 7,
+	"disqus_shortname": "",
+	"posts": [{
+		"title": "hello world",
+		"date": "2016-02-18",
+		"tags": "test",
+		"path": "hello.html"
+	}],
+	"pages": []
+}
