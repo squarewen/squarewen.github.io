@@ -7,6 +7,12 @@
 		"date": "2016-02-18",
 		"tags": "test",
 		"path": "hello.html"
+	},
+	{
+		"title": "test-1",
+		"date": "2016-02-20",
+		"tags": "nodejs",
+		"path": "test-1.html"
 	}],
 	"pages": []
 }
