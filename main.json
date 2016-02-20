@@ -1,18 +1,1 @@
-{
-	"name": "squarewe5",
-	"number_of_posts_per_page": 7,
-	"disqus_shortname": "",
-	"posts": [{
-		"title": "hello world",
-		"date": "2016-02-18",
-		"tags": "test",
-		"path": "hello.html"
-	},
-	{
-		"title": "test-1",
-		"date": "2016-02-20",
-		"tags": "nodejs",
-		"path": "test-1.html"
-	}],
-	"pages": []
-}
+{"name":"squarewe5","number_of_posts_per_page":7,"disqus_shortname":"","posts":[{"title":"test-1","date":"2016-02-20","tags":"nodejs","path":"test1.html"},{"title":"hello world","date":"2016-02-18","tags":"test","path":"hello.html","num":0,"type":"post","active":false}],"pages":[]}
