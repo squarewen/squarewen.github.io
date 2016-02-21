@@ -489,6 +489,9 @@ a:focus {
 	font-size: 24px;
 	color: #000;
 }
+.item div a:hover {
+	text-decoration: none;
+}
 .item div span {
 	font-size: 20px;
 	color: #fff;
