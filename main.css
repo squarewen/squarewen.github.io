@@ -368,7 +368,7 @@ a:focus {
 	margin: 0;
 }
 .navbar-custom .navbar-nav > li > a {
-	color: #000;
+	color: #fff;
 	font-size: 16px;
 	font-weight: 700;
 	font-family: 'Microsoft YaHei';
@@ -393,13 +393,10 @@ a:focus {
 }
 
 .navbar-solid {
-	background-color: #3daf2c !important;
+	background-color: #000 !important;
 	padding: 0 !important;
 	-webkit-transition: all 0.2s linear 0s;
 	transition: all 0.2s linear 0s;
-}
-.navbar-solid a {
-	color: #fff !important;
 }
 
 .site-brand {
