@@ -407,8 +407,8 @@ a:focus {
 .navbar-toggle .icon-bar {
 	background-color: #fff;
 }
-.navbar-collapse {
-	background-color: rgba(0, 0, 0, 0.8);
+.navbar-nav {
+    margin: 0 -15px;
 }
 .navbar-solid {
 	background-color: #000 !important;
@@ -441,9 +441,6 @@ a:focus {
 	}
 	.nav > li {
 		display: block;
-	}
-	.navbar-collapse {
-		background-color: transparent !important;
 	}
 }
 
