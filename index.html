@@ -40,14 +40,6 @@
 			</div>
 		</div>
 	</nav>
-	<!-- 简介 -->
-	<header id="site-header" class="site-header valign-center"> 
-		<div class="intro">
-			<h2>25 April, 2015 / Townhall California</h2>
-			<h1>Freelancer Conference 2015</h1>
-			<p>First &amp; Largest Conference</p>
-		</div>
-	</header>
 
 	<!-- 正文 -->
 	<div id="main" class="main"></div>	
@@ -92,6 +84,13 @@
 <script src="main.js"></script>
 
 <script id="itemTemplate" type="text/mustache">
+	<header id="site-header" class="site-header valign-center"> 
+		<div class="intro">
+			<h2>25 April, 2015 / Townhall California</h2>
+			<p>First &amp; Largest Conference</p>
+		</div>
+	</header>
+
 	{{#posts}}
 	<div class="item">
 		<a href="{{path}}">{{title}}</a>

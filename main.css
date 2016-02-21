@@ -476,7 +476,6 @@ a:focus {
 /* 正文 */
 .main {
 	min-height: 1600px;
-	padding-top: 100px;
 	position: relative;
 }
 .item { 
