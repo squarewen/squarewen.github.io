@@ -91,16 +91,17 @@
 		</div>
 	</header>
 
-	{{#posts}}
-	<div class="item">
-		<div>
+	<div class="row list">
+		{{#posts}}
+		<div class="col-md-10">
 			<a href="{{path}}">{{title}}</a>
 			<span>{{tags}}</span>
 		</div>
-		<p>{{date}}</p>
+		<div class="col-md-2">{{date}}</div>
+		<div class="clr"></div>
+		{{/posts}}
 	</div>
-	<div class="clr"></div>
-	{{/posts}}
+
 	<ul class="pages">
 	{{#pages}}
 		<li>
