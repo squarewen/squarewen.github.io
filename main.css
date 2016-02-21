@@ -367,7 +367,7 @@ a:focus {
 	margin: 0;
 }
 .navbar-custom .navbar-nav > li > a {
-	color: #3daf2c;
+	color: #000;
 	font-size: 12px;
 	border-bottom: 1px solid transparent;
 }
@@ -402,7 +402,7 @@ a:focus {
 	margin-left: 10px;
 }
 .site-brand a {
-	color: #fff;
+	color: #000;
 }
 .site-brand a:focus, 
 .site-brand a:hover {
@@ -424,6 +424,7 @@ a:focus {
 /* 正文 */
 .main {
 	width: 1000px;
+	min-height: 1600px;
 	margin: 0 auto;
 	padding-top: 60px;
 	position: relative;
