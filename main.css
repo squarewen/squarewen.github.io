@@ -462,7 +462,7 @@ a:focus {
 }
 .pages > li {
 	margin: 0 4px;
-	display: inline;
+	display: inline-block;
 }
 .pages > li > a,
 .pages > li > span {
