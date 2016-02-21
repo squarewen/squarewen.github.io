@@ -457,11 +457,14 @@ a:focus {
 	margin: 25px 25px 35px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+.pages a {
+	text-decoration: none;
+}
 .pages a:hover {
 	border: 1px solid #3daf2c;
 }
 .pages > li {
-	margin: 0 4px;
+	margin: 0;
 	display: inline-block;
 }
 .pages > li > a,
