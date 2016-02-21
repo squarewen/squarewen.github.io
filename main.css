@@ -433,6 +433,12 @@ a:focus {
 	}
 }
 
+/* 框架-首页/分类/文章 */
+.main {
+	min-height: 1600px;
+	position: relative;
+}
+
 /* 首页欢迎图 */
 .site-header {
 	width: 100%;
@@ -470,31 +476,24 @@ a:focus {
 	font-weight: 500;
 }
 
-
-
-
-/* 正文 */
-.main {
-	min-height: 1600px;
-	position: relative;
-}
+/* 首页欢迎图 */
 .item { 
 	max-width: 1100px;
 	margin: 0 auto;
 	padding: 10px 0;
 }
-.title {
-	padding: 0;
-	margin: 0;
-}
-.item a {
+.item div {
 	float: left;
 	font-size: 24px;
 	line-height: 24px;
 	overflow: hidden;
-
 }
-.item span {
+.item div span {
+	font-size: 20px;
+	color: #fff;
+	background-color: #000;
+}
+.item p {
 	float: right;
 	font-size: 14px;
 	font-weight: 500;

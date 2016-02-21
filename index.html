@@ -93,8 +93,11 @@
 
 	{{#posts}}
 	<div class="item">
-		<a href="{{path}}">{{title}}</a>
-		<span class="date">{{date}}</span>
+		<div>
+			<a href="{{path}}">{{title}}</a>
+			<span>{{tags}}</span>
+		</div>
+		<p>{{date}}</p>
 	</div>
 	<div class="clr"></div>
 	{{/posts}}
