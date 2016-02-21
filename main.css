@@ -442,6 +442,9 @@ a:focus {
 	.nav > li {
 		display: block;
 	}
+	.navbar-collapse {
+		background-color: transparent;
+	}
 }
 
 /* 框架-首页/分类/文章 */
