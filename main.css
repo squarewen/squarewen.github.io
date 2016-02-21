@@ -390,8 +390,8 @@ a:focus {
 }
 
 .navbar-solid {
-	color: #3daf2c;
-	background-color: #000 !important;
+	color: #fff !important;
+	background-color: #3daf2c !important;
 	padding: 0 !important;
 	-webkit-transition: all 0.2s linear 0s;
 	transition: all 0.2s linear 0s;
