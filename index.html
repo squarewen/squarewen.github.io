@@ -7,9 +7,46 @@
 	<meta name="Description" content="blog"/>
 	<title>squarewen's blog</title>
 	<link rel="shortcut icon" href="/static/favicon.png"/>
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="main.css" />
+
+	<script src="http://cdn.bootcss.com/jquery/1.7/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+	<nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="site-brand">
+					<a class="logo" href="index.html">
+						<img src="assets/images/logo.png" alt="Logo">
+						Conference 2015
+					</a>
+				</div>
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbar-items">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="/">首页</a></li>
+					<li><a href="/#/tags">分类</a></li>
+					<li><a href="/#/archive">文章</a></li>
+					<li><a href="/#/about">关于</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
 <div class="main">
 	<div class="header">
 		<ul id="pages">
@@ -24,9 +61,9 @@
 			</li>
 		</ul>
 	</div>
-	<div class="wrap-header">
+	<!-- <div class="wrap-header">
 		<h1><a href="/" id="title"></a></h1>
-	</div>
+	</div> -->
 	<div class="innermain" id="main">
 	</div>
 	<div class="footer">
@@ -232,6 +269,32 @@
 			}
 		});    
 	});
+</script>
+
+<script>
+	$(window).scroll(function(){
+	handleTopNavAnimation();
+});
+
+$(window).load(function(){
+	handleTopNavAnimation();
+    $('.site-header').css("min-height", $(window).height());
+});
+
+$(window).resize(function(){
+    $('.site-header').css("min-height", $(window).height());
+});
+
+function handleTopNavAnimation() {
+	var top=$(window).scrollTop();
+
+	if(top>10){
+		$('#site-nav').addClass('navbar-solid'); 
+	}
+	else{
+		$('#site-nav').removeClass('navbar-solid'); 
+	}
+}
 </script>
 
 </body>
