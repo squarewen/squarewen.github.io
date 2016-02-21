@@ -367,6 +367,12 @@ a:focus {
 }
 
 /* 导航 */
+.navbar-header {
+	margin-top: 6px;
+}
+.nav > li {
+	display: inline-block;
+}
 .navbar-custom {
 	border: 0;
 	margin: 0;
@@ -431,6 +437,9 @@ a:focus {
 		margin-top: 6px;
 		margin-left: 0;
 	}
+	.nav > li {
+		display: block;
+	}
 }
 
 /* 框架-首页/分类/文章 */
@@ -485,6 +494,7 @@ a:focus {
 .list .item {
 	width: 70%;
 	float: left;
+	padding: 8px;
 	font-family: 'Microsoft YaHei';
 }
 .list .item a {
