@@ -386,9 +386,7 @@ a:hover {
 	border-bottom: 1px solid #E93071;
 }
 
-.selected {
-	color: #000;
-}
+
 .item { 
 	margin: 10px 0;
 	padding: 1px 0;
@@ -410,6 +408,8 @@ a:hover {
 	width: 140px;
 	padding: 16px 0 0;
 }
+
+/*  */
 .title {
 	padding: 0;
 	margin: 0 0 0 140px;
@@ -428,6 +428,8 @@ a:hover {
 	text-align: center;
 	color: #555;
 }
+
+/* 页码 */
 .pages {
 	text-align: center;
 	margin: 25px 25px 35px;
@@ -447,9 +449,16 @@ a:hover {
 	border: 1px solid #eee;
 	border-radius: 4px;
 }
+.selected {
+	color: #000;
+}
+
+/* 标签 */
 .tag {
 	color: #888;
 }
+
+/* 文章存档 */
 .archive {
 	margin: 10px;
 }
@@ -457,19 +466,7 @@ a:hover {
 	color: #C5C5BD;
 	margin-right: 20px;
 }
-@media(max-width: 800px) {
-	.main {
-		width: 500px;
-	}
-	.header {
-		margin: 70px 0 0 -180px;
-	}
-}
-@media(max-width: 600px) {
-	.main {
-		width: 100%;
-	}
-}
+
 
 
 
@@ -483,7 +480,6 @@ html {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 }
-
 body {
 	color: #4e4e4e;
 	font-family: 'Roboto', sans-serif;
@@ -493,26 +489,8 @@ body {
 	position: relative;
 	-webkit-font-smoothing: antialiased;
 }
-
-a {
-	color: #000;
-}
 a:focus {
 	outline: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: 700;
-}
-
-ul li {
-	font-weight: 700;
-	margin-bottom: 10px;
 }
 
 
@@ -570,15 +548,11 @@ ul li {
 	margin-top: 0;
 	margin-left: 10px;
 }
-.site-brand .logo {
+.site-brand a {
 	color: #fff;
-	font-size: 14px;
-	font-weight: 700;
-	margin-right: 5px;
-	letter-spacing: 3px;
-	text-transform: uppercase;
 }
-.site-brand .logo:focus, .site-brand .logo:hover {
+.site-brand a:focus, 
+.site-brand a:hover {
 	text-decoration: none;
 }
 
