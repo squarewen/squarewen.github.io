@@ -463,6 +463,7 @@ a:focus {
 	position: relative;
 	text-align: center;
 	color: #fff;
+	font-family: 'Microsoft YaHei';
 	z-index: 1;
 }
 .site-header .intro h2 {
