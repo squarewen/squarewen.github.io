@@ -87,9 +87,10 @@
 <script id="itemTemplate" type="text/mustache">
 	{{#posts}}
 	<div class="item">
-		<div class="title"><a href="{{path}}">{{title}}</a></div>
-		<div class="date">{{date}}</div>
+		<a href="{{path}}">{{title}}</a>
+		<span class="date">{{date}}</span>
 	</div>
+	<div class="clr"></div>
 	{{/posts}}
 	<ul class="pages">
 	{{#pages}}
