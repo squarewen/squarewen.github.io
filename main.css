@@ -431,7 +431,6 @@ a:focus {
 
 /* 正文 */
 .main {
-	max-width: 1100px;
 	min-height: 1600px;
 	margin: 0 auto;
 	padding-top: 100px;
@@ -443,6 +442,7 @@ a:focus {
 	background-color: green;
 }
 .item { 
+	max-width: 1100px;
 	margin: 0;
 	padding: 10px 0;
 }
