@@ -25,18 +25,25 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-## test-3
-![pic](http://7xr2ee.com1.z0.glb.clouddn.com/javascript%2Ftest.jpg)
-[jsbin url](https://jsbin.com/nizuson/1/edit?html,output)
+#test-7
+
+
+[Google](http://google.com)
+~~~~{python}
+print 'hello world'
+~~~~
+
 
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<h2 id="test3">test-3</h2>
+<h1 id="test7">test-7</h1>
 
-<p><img src="http://7xr2ee.com1.z0.glb.clouddn.com/javascript%2Ftest.jpg" alt="pic" title="">
-<a href="https://jsbin.com/nizuson/1/edit?html,output">jsbin url</a></p>
+<p><a href="http://google.com">Google</a></p>
+
+<pre class=" language-python"><code class=" language-python"><span class="token keyword">print</span> <span class="token string">'hello world'</span>
+</code></pre>
 <!-- content end -->
 </div>
 <br>
@@ -75,7 +82,7 @@ $(document).ready(function() {
             var pagesHtml = pagesTemplate.render({"pages": data.pages});
             $("#pages").append(pagesHtml);
             //path
-            var path = "test-3.html";
+            var path = "test-7.html";
             //path end
             var now = 0;
             for (var i = 0; i < data.posts.length; ++i)
