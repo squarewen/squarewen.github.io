@@ -364,13 +364,12 @@ a:focus {
 	margin: 0;
 }
 .navbar-custom .navbar-nav > li > a {
-	color: #fff;
-	text-transform: uppercase;
+	color: #3daf2c;
 	font-size: 12px;
-	font-weight: 400;
 	border-bottom: 1px solid transparent;
 }
-.navbar-custom .navbar-nav > li > a:focus, .navbar-custom .navbar-nav > li > a:hover {
+.navbar-custom .navbar-nav > li > a:focus, 
+.navbar-custom .navbar-nav > li > a:hover {
 	background-color: transparent;
 	border-color: rgba(255, 255, 255, 0.5);
 }

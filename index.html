@@ -273,29 +273,20 @@
 </script>
 
 <script>
+	$(window).load(function(){
+		handleTopNavAnimation();
+	});
 	$(window).scroll(function(){
-	handleTopNavAnimation();
-});
-
-$(window).load(function(){
-	handleTopNavAnimation();
-    $('.site-header').css("min-height", $(window).height());
-});
-
-$(window).resize(function(){
-    $('.site-header').css("min-height", $(window).height());
-});
-
-function handleTopNavAnimation() {
-	var top=$(window).scrollTop();
-
-	if(top>10){
-		$('#site-nav').addClass('navbar-solid'); 
+		handleTopNavAnimation();
+	});
+	function handleTopNavAnimation() {
+		var top=$(window).scrollTop();
+		if(top>10){
+			$('#site-nav').addClass('navbar-solid'); 
+		}else{
+			$('#site-nav').removeClass('navbar-solid'); 
+		}
 	}
-	else{
-		$('#site-nav').removeClass('navbar-solid'); 
-	}
-}
 </script>
 
 </body>
