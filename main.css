@@ -377,7 +377,7 @@ a:focus {
 	border: 0;
 	margin: 0;
 	padding-top: 10px;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: #000;
 	-webkit-transition: all 0.2s linear 0s;
 	transition: all 0.2s linear 0s;
 }
@@ -406,6 +406,9 @@ a:focus {
 }
 .navbar-toggle .icon-bar {
 	background-color: #fff;
+}
+.navbar-collapse {
+	border-color: rgba(0, 0, 0, 0.8);
 }
 .navbar-solid {
 	background-color: #000 !important;
