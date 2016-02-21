@@ -482,23 +482,24 @@ a:focus {
 	margin: 0 auto;
 }
 .list .item {
-	width: 80%;
+	width: 70%;
 	float: left;
+	font-family: 'Microsoft YaHei';
 }
 .list .item a {
-	font-size: 24px;
+	font-size: 20px;
 	color: #000;
 }
 .list .item a:hover {
 	text-decoration: none;
 }
 .list .item span {
-	font-size: 20px;
+	font-size: 18px;
 	color: #fff;
 	background-color: #000;
 }
 .list .date {
-	width: 10%;
+	width: 80px;
 	float: right;
 	font-size: 14px;
 	font-weight: 500;
