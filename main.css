@@ -428,11 +428,52 @@ a:focus {
 	}
 }
 
+/* 首页欢迎图 */
+.site-header {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  background: url(http://7xr2ee.com1.z0.glb.clouddn.com/javascript%2Ftest.jpg) no-repeat center center/cover;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.site-header .intro {
+  color: #fff;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  z-index: 1;
+  padding: 0 15px;
+}
+.site-header .intro h2 {
+  margin-top: 0px;
+  font-size: 25px;
+  font-weight: 300;
+}
+.site-header .intro h1 {
+  margin-top: 0px;
+  font-size: 30px;
+}
+.site-header .intro p {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
 
 /* 正文 */
 .main {
 	min-height: 1600px;
-	margin: 0 auto;
 	padding-top: 100px;
 	position: relative;
 }
@@ -443,7 +484,7 @@ a:focus {
 }
 .item { 
 	max-width: 1100px;
-	margin: 0;
+	margin: 0 auto;
 	padding: 10px 0;
 }
 .title {
