@@ -390,11 +390,13 @@ a:focus {
 }
 
 .navbar-solid {
-	color: #fff !important;
 	background-color: #3daf2c !important;
 	padding: 0 !important;
 	-webkit-transition: all 0.2s linear 0s;
 	transition: all 0.2s linear 0s;
+}
+.navbar-solid a {
+	color: #fff !important;
 }
 
 .site-brand {
