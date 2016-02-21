@@ -341,6 +341,7 @@ body {
 	position: relative;
 	line-height: 1.6;
 	color: #4e4e4e;
+	background-color: #f2f2f2;
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	font-weight: 300;
@@ -368,7 +369,9 @@ a:focus {
 }
 .navbar-custom .navbar-nav > li > a {
 	color: #000;
-	font-size: 12px;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: 'Microsoft YaHei';
 	border-bottom: 1px solid transparent;
 }
 .navbar-custom .navbar-nav > li > a:focus, 
@@ -405,6 +408,8 @@ a:focus {
 	margin-left: 10px;
 }
 .site-brand a {
+	font-size: 20px;
+	font-family: 'Microsoft YaHei';
 	color: #000;
 }
 .site-brand a:focus, 
@@ -426,7 +431,7 @@ a:focus {
 
 /* 正文 */
 .main {
-	width: 1000px;
+	width: 1200px;
 	min-height: 1600px;
 	margin: 0 auto;
 	padding-top: 60px;
