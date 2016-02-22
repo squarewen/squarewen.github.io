@@ -583,6 +583,9 @@ a:focus {
 	text-align: center;
 	padding: 5px 0;
 }
+.site-footer img {
+	width: 50px;
+}
 .site-footer p {
 	margin: 10px 0;
 	padding: 8px 0 2px;
