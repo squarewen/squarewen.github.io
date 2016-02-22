@@ -64,7 +64,6 @@
 			<h2>前端 · 设计 · 灵感</h2>
 		</div>
 	</header>
-	{{tdd}}
 	<div class="list">
 		{{#posts}}
 		<div class="item">
@@ -163,6 +162,27 @@
 					el: $("#main"),
 					init: function() {
 						this.routes({
+							"/": function(){
+								$('#site-nav').removeClass('navbar-solid');
+								$(window).load(function(){
+									handleTopNavAnimation();
+									$('.site-header').css("min-height", $(window).height());
+								});
+								$(window).scroll(function(){
+									handleTopNavAnimation();
+								});
+								$(window).resize(function(){
+									$('.site-header').css("min-height", $(window).height());
+								});
+								function handleTopNavAnimation() {
+									var top=$(window).scrollTop();
+									if(top>10){
+										$('#site-nav').addClass('navbar-solid'); 
+									}else{
+										$('#site-nav').removeClass('navbar-solid'); 
+									}
+								}
+							},
 							"/page/:page": function(page) {this.go(page);},
 							"/tags": function() {this.tags();},
 							"/tag/:tag": function(param) {this.tag(param);},
@@ -256,25 +276,7 @@
 			}
 		});    
 	});
-	$('#site-nav').removeClass('navbar-solid');
-	$(window).load(function(){
-		handleTopNavAnimation();
-		$('.site-header').css("min-height", $(window).height());
-	});
-	$(window).scroll(function(){
-		handleTopNavAnimation();
-	});
-	$(window).resize(function(){
-		$('.site-header').css("min-height", $(window).height());
-	});
-	function handleTopNavAnimation() {
-		var top=$(window).scrollTop();
-		if(top>10){
-			$('#site-nav').addClass('navbar-solid'); 
-		}else{
-			$('#site-nav').removeClass('navbar-solid'); 
-		}
-	}
+	
 </script>
 
 
