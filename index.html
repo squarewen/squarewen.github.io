@@ -158,19 +158,21 @@
 				var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
 				var pagesHtml = pagesTemplate.render({"pages": data.pages});
 				$("#pages").append(pagesHtml);
+				var scrollFlag;
 				var App = Spine.Controller.sub({
 					el: $("#main"),
 					init: function() {
 						this.routes({
 							"": function(){
 								console.log('home');
-								var scrollFlag=true;
+								scrollFlag=true;
 								$(window).load(function(){
 									handleTopNavAnimation();
 									$('.site-header').css("min-height", $(window).height());
 								});
 								$(window).scroll(function(){
 									console.log('scroll');
+									console.log(scrollFlag);
 									handleTopNavAnimation();
 								});
 								$(window).resize(function(){
@@ -188,9 +190,9 @@
 								}
 							},
 							"/page/:page": function(page) {this.go(page);console.log('page');},
-							"/tags": function() {this.tags();console.log('tags');var scrollFlag=false;},
-							"/tag/:tag": function(param) {this.tag(param);console.log('tag');var scrollFlag=false;},
-							"/archive": function() {this.archive();console.log('archive');var scrollFlag=false;}
+							"/tags": function() {this.tags();console.log('tags');scrollFlag=false;},
+							"/tag/:tag": function(param) {this.tag(param);console.log('tag');scrollFlag=false;},
+							"/archive": function() {this.archive();console.log('archive');scrollFlag=false;}
 						});
 						Spine.Route.setup();
 					},
