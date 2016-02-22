@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="navbar-header">
 				<div class="site-brand">
-					<a href="/" id="title"></a>
+					<a href="/" id="title"><img src="http://7xr2ee.com1.z0.glb.clouddn.com/imagelion-logo.png" alt="squarewen"></a>
 				</div>
 
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
@@ -152,7 +152,7 @@
 			type: "GET",
 			dataType: "json",
 			success: function(data) {
-				$("#title").html(data.name);
+				//$("#title").html(data.name);
 				data.posts.sort(function(a, b){
 					if (a.date > b.date)
 						return -1;
