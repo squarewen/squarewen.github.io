@@ -33,7 +33,7 @@
 
 			<div class="collapse navbar-collapse" id="navbar-items">
 				<ul id="pages" class="nav navbar-nav navbar-right">
-					<li class="active"><a href="/">首页</a></li>
+					<li><a href="/">首页</a></li>
 					<li><a href="/#/archive">文章</a></li>
 					<li><a href="/#/tags">分类</a></li>
 				</ul>
@@ -164,15 +164,13 @@
 					init: function() {
 						this.routes({
 							"": function(){
-								console.log('home');
 								scrollFlag=true;
+								$('#pages li:first-child').addClass('active');
 								$(window).load(function(){
 									handleTopNavAnimation();
 									$('.site-header').css("min-height", $(window).height());
 								});
 								$(window).scroll(function(){
-									console.log('scroll');
-									console.log(scrollFlag);
 									handleTopNavAnimation();
 								});
 								$(window).resize(function(){
@@ -189,10 +187,24 @@
 									}
 								}
 							},
-							"/page/:page": function(page) {this.go(page);console.log('page');},
-							"/tags": function() {this.tags();console.log('tags');scrollFlag=false;$('#site-nav').addClass('navbar-solid');},
-							"/tag/:tag": function(param) {this.tag(param);console.log('tag');scrollFlag=false;$('#site-nav').addClass('navbar-solid');},
-							"/archive": function() {this.archive();console.log('archive');scrollFlag=false;$('#site-nav').addClass('navbar-solid');}
+							"/page/:page": function(page){
+								this.go(page);
+							},
+							"/tags": function(){
+								this.tags();
+								scrollFlag=false;
+								$('#site-nav').addClass('navbar-solid');
+							},
+							"/tag/:tag": function(param){
+								this.tag(param);
+								scrollFlag=false;
+								$('#site-nav').addClass('navbar-solid');
+							},
+							"/archive": function(){
+								this.archive();
+								scrollFlag=false;
+								$('#site-nav').addClass('navbar-solid');
+							}
 						});
 						Spine.Route.setup();
 					},
