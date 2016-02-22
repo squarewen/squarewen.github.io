@@ -163,7 +163,7 @@
 					init: function() {
 						this.routes({
 							"": function(){
-								alert(5);
+								console.log('home');
 								$(window).load(function(){
 									handleTopNavAnimation();
 									$('.site-header').css("min-height", $(window).height());
@@ -183,10 +183,10 @@
 									}
 								}
 							},
-							"/page/:page": function(page) {this.go(page);},
-							"/tags": function() {this.tags();},
-							"/tag/:tag": function(param) {this.tag(param);},
-							"/archive": function() {this.archive();}
+							"/page/:page": function(page) {this.go(page);console.log('page');},
+							"/tags": function() {this.tags();console.log('tags');},
+							"/tag/:tag": function(param) {this.tag(param);console.log('tag');},
+							"/archive": function() {this.archive();console.log('archive');}
 						});
 						Spine.Route.setup();
 					},
