@@ -104,7 +104,7 @@
 
 <script id="tagsTemplate" type="text/mustache">
 	<script>
-		alert(0);
+		$('#site-nav').addClass('navbar-solid');
 	</script>
 	<ul style="list-style: none">
 		{{#tags}}
@@ -208,7 +208,7 @@
 						tf();
 						var ans = [];
 						for (var k in ts) {
-							ans.push({"name": k, "size": 100+Math.sqrt(ts[k]-1)*30, "path": "#/tag/"+k});
+							ans.push({"name": "#"+k, "size": 100+Math.sqrt(ts[k]-1)*30, "path": "#/tag/"+k});
 						}
 						var tagsTemplate = Hogan.compile($("#tagsTemplate").html());
 						var tagsHtml = tagsTemplate.render({"tags": ans});
@@ -216,7 +216,7 @@
 					},
 					tag: function(param) {
 						var tag = param.tag;
-						var group = [{"name": tag}];
+						var group = [{"name": "#"+tag}];
 						var posts = [];
 						for (var i = 0; i < data.posts.length; ++i) {
 							var tmp = data.posts[i].tags.split(" ");
