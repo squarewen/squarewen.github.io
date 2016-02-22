@@ -85,7 +85,7 @@ $(document).ready(function() {
 		success: function(data) {
 			//$("#title").html(data.name);
 			$('#pages li').removeClass('active');
-			$('#pages li:last-child').addClass('active');
+			$('#pages li:eq(3)').addClass('active');
 			$('#site-nav').addClass('navbar-solid');
 			var pages = [];
 			//path
