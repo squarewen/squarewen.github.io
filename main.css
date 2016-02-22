@@ -444,7 +444,7 @@ a:focus {
 	}
 	.site-brand img {
 		position: relative;
-		top: -2px;
+		top: -4px;
 	}
 	.nav > li {
 		display: block;
@@ -453,7 +453,7 @@ a:focus {
 
 /* 框架-首页/分类/文章 */
 .main {
-	min-height: 1600px;
+	margin-bottom: 80px;
 	position: relative;
 }
 
@@ -582,4 +582,10 @@ a:focus {
 	color: #FFF;
 	text-align: center;
 	padding: 5px 0;
+}
+.site-footer p {
+	margin: 10px 0;
+	border-top: 1px solid #e3e3e3;
+	color: #bdbdb7;
+    font-size: 14px;
 }
