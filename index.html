@@ -190,9 +190,9 @@
 								}
 							},
 							"/page/:page": function(page) {this.go(page);console.log('page');},
-							"/tags": function() {this.tags();console.log('tags');scrollFlag=false;},
-							"/tag/:tag": function(param) {this.tag(param);console.log('tag');scrollFlag=false;},
-							"/archive": function() {this.archive();console.log('archive');scrollFlag=false;}
+							"/tags": function() {this.tags();console.log('tags');scrollFlag=false;$('#site-nav').addClass('navbar-solid');},
+							"/tag/:tag": function(param) {this.tag(param);console.log('tag');scrollFlag=false;$('#site-nav').addClass('navbar-solid');},
+							"/archive": function() {this.archive();console.log('archive');scrollFlag=false;$('#site-nav').addClass('navbar-solid');}
 						});
 						Spine.Route.setup();
 					},
