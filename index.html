@@ -193,19 +193,22 @@
 							"/tags": function(){
 								this.tags();
 								scrollFlag=false;
-								$('#pages li:first-child').removeClass('active');
+								$('#pages li').removeClass('active');
+								$('#pages li:eq(2)').addClass('active');
 								$('#site-nav').addClass('navbar-solid');
 							},
 							"/tag/:tag": function(param){
 								this.tag(param);
 								scrollFlag=false;
-								$('#pages li:first-child').removeClass('active');
+								$('#pages li').removeClass('active');
+								$('#pages li:eq(2)').addClass('active');
 								$('#site-nav').addClass('navbar-solid');
 							},
 							"/archive": function(){
 								this.archive();
 								scrollFlag=false;
-								$('#pages li:first-child').removeClass('active');
+								$('#pages li').removeClass('active');
+								$('#pages li:eq(1)').addClass('active');
 								$('#site-nav').addClass('navbar-solid');
 							}
 						});

@@ -67,13 +67,7 @@
 
 <script src="main.js"></script>
 <script id="content" type="text/mustache">
-	<h1>{{title}}</h1>
-	<div class="tag">
-	{{date}}
-	{{#tags}}
-	<a href="/#/tag/{{name}}">#{{name}}</a>
-	{{/tags}}
-	</div>
+	
 </script>
 <script id="pagesTemplate" type="text/mustache">
 	{{#pages}}
@@ -89,7 +83,10 @@ $(document).ready(function() {
 		type: "GET",
 		dataType: "json",
 		success: function(data) {
-			$("#title").html(data.name);
+			//$("#title").html(data.name);
+			$('#pages li').removeClass('active');
+			$('#pages li:last-child').addClass('active');
+			$('#site-nav').addClass('navbar-solid');
 			var pages = [];
 			//path
 			var path = "about.html";
@@ -127,6 +124,7 @@ $(document).ready(function() {
 	});
 });
 </script>
+
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
