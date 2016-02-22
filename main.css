@@ -391,7 +391,7 @@ a:focus {
 .navbar-custom .navbar-nav > li > a:focus, 
 .navbar-custom .navbar-nav > li > a:hover {
 	background-color: transparent;
-	border-color: rgba(255, 255, 255, 0.5);
+	border-color: #d03b19;
 }
 .navbar-custom .navbar-nav > .active > a {
 	border-color: #d03b19;
