@@ -34,8 +34,8 @@
 			<div class="collapse navbar-collapse" id="navbar-items">
 				<ul id="pages" class="nav navbar-nav navbar-right">
 					<li class="active"><a href="/">首页</a></li>
-					<li><a href="/#/tags">分类</a></li>
 					<li><a href="/#/archive">文章</a></li>
+					<li><a href="/#/tags">分类</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,36 +56,10 @@
 		</div>
 	</footer>
 
-
-<!-- <div class="main">
-	<div class="header">
-		<ul id="pages">
-			<li>
-				<a href="/">首页</a>
-			</li>
-			<li>
-				<a href="/#/tags">分类</a>
-			</li>
-			<li>
-				<a href="/#/archive">文章</a>
-			</li>
-		</ul>
-	</div>
-	<div class="wrap-header">
-		<h1><a href="/" id="title"></a></h1>
-	</div>
-	<div class="innermain" id="main">
-	</div>
-	<div class="footer">
-		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
-	</div>
-</div> -->
-
-
 <script src="main.js"></script>
 
 <script id="itemTemplate" type="text/mustache">
-	<header id="site-header" class="site-header valign-center"> 
+	<header class="site-header valign-center"> 
 		<div class="intro">
 			<h2>前端 · 设计 · 灵感</h2>
 		</div>
@@ -121,11 +95,24 @@
 	{{name}}
 	{{#posts}}
 	<div class="archive">
-	<span>{{date}}</span>
-	<a href="{{path}}">{{title}}</a>
+		<span>{{date}}</span>
+		<a href="{{path}}">{{title}}</a>
 	</div>
 	{{/posts}}
 	{{/group}}
+</script>
+
+<script id="tagsTemplate" type="text/mustache">
+	<script>
+		alert(0);
+	</script>
+	<ul style="list-style: none">
+		{{#tags}}
+			<li style="display:inline; margin: 15px;">
+				<a href="{{path}}">{{name}}</a>
+			</li>
+		{{/tags}}
+	</ul>
 </script>
 
 <script id="pagesTemplate" type="text/mustache">
@@ -134,16 +121,6 @@
 		<a href="{{path}}">{{title}}</a>
 	</li>
 	{{/pages}}
-</script>
-
-<script id="tagsTemplate" type="text/mustache">
-	<ul style="list-style: none">
-		{{#tags}}
-		<li style="display:inline; margin: 15px;">
-			<a href="{{path}}" style="font-size: {{size}}%">{{name}}</a>
-		</li>
-		{{/tags}}
-	</ul>
 </script>
 
 <script>
@@ -231,7 +208,7 @@
 						tf();
 						var ans = [];
 						for (var k in ts) {
-							ans.push({"name": "#"+k, "size": 100+Math.sqrt(ts[k]-1)*30, "path": "#/tag/"+k});
+							ans.push({"name": k, "size": 100+Math.sqrt(ts[k]-1)*30, "path": "#/tag/"+k});
 						}
 						var tagsTemplate = Hogan.compile($("#tagsTemplate").html());
 						var tagsHtml = tagsTemplate.render({"tags": ans});
@@ -239,7 +216,7 @@
 					},
 					tag: function(param) {
 						var tag = param.tag;
-						var group = [{"name": "#"+tag}];
+						var group = [{"name": tag}];
 						var posts = [];
 						for (var i = 0; i < data.posts.length; ++i) {
 							var tmp = data.posts[i].tags.split(" ");
