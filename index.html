@@ -169,26 +169,6 @@
 							"/archive": function() {this.archive();}
 						});
 						Spine.Route.setup();
-						var tdd="$('#site-nav').removeClass('navbar-solid');
-						$(window).load(function(){
-							handleTopNavAnimation();
-							$('.site-header').css("min-height", $(window).height());
-						});
-						$(window).scroll(function(){
-							handleTopNavAnimation();
-						});
-						$(window).resize(function(){
-							$('.site-header').css("min-height", $(window).height());
-						});
-						function handleTopNavAnimation() {
-							var top=$(window).scrollTop();
-							if(top>10){
-								$('#site-nav').addClass('navbar-solid'); 
-							}else{
-								$('#site-nav').removeClass('navbar-solid'); 
-							}
-						}
-						"
 					},
 					go: function(page) {
 						page = Math.floor(page.page);
@@ -276,6 +256,25 @@
 			}
 		});    
 	});
+	$('#site-nav').removeClass('navbar-solid');
+	$(window).load(function(){
+		handleTopNavAnimation();
+		$('.site-header').css("min-height", $(window).height());
+	});
+	$(window).scroll(function(){
+		handleTopNavAnimation();
+	});
+	$(window).resize(function(){
+		$('.site-header').css("min-height", $(window).height());
+	});
+	function handleTopNavAnimation() {
+		var top=$(window).scrollTop();
+		if(top>10){
+			$('#site-nav').addClass('navbar-solid'); 
+		}else{
+			$('#site-nav').removeClass('navbar-solid'); 
+		}
+	}
 </script>
 
 
