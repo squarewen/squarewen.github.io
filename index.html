@@ -103,7 +103,6 @@
 </script>
 
 <script id="tagsTemplate" type="text/mustache">
-	$('#site-nav').addClass('navbar-solid');
 	<ul style="list-style: none">
 		{{#tags}}
 			<li style="display:inline; margin: 15px;">
@@ -163,6 +162,7 @@
 				var App = Spine.Controller.sub({
 					el: $("#main"),
 					init: function() {
+						alert(11);
 						this.routes({
 							"/page/:page": function(page) {this.go(page);},
 							"/tags": function() {this.tags();},
