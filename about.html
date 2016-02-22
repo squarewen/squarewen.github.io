@@ -71,7 +71,7 @@
 </script>
 <script id="pagesTemplate" type="text/mustache">
 	{{#pages}}
-	<li>
+	<li class="active">
 		<a href="{{path}}">{{title}}</a>
 	</li>
 	{{/pages}}
@@ -84,8 +84,7 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(data) {
 			//$("#title").html(data.name);
-			$('#pages li').removeClass('active');
-			$('#pages li:eq(3)').addClass('active');
+			$('#pages li').removeClass('active');\
 			$('#site-nav').addClass('navbar-solid');
 			var pages = [];
 			//path
