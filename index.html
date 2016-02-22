@@ -164,6 +164,7 @@
 						this.routes({
 							"": function(){
 								console.log('home');
+								var scrollFlag=true;
 								$(window).load(function(){
 									handleTopNavAnimation();
 									$('.site-header').css("min-height", $(window).height());
@@ -177,7 +178,7 @@
 								});
 								function handleTopNavAnimation() {
 									var top=$(window).scrollTop();
-									if(top>10){
+									if(top>10&&scrollFlag){
 										$('#site-nav').addClass('navbar-solid'); 
 									}else{
 										$('#site-nav').removeClass('navbar-solid'); 
@@ -185,9 +186,9 @@
 								}
 							},
 							"/page/:page": function(page) {this.go(page);console.log('page');},
-							"/tags": function() {this.tags();console.log('tags');},
-							"/tag/:tag": function(param) {this.tag(param);console.log('tag');},
-							"/archive": function() {this.archive();console.log('archive');}
+							"/tags": function() {this.tags();console.log('tags');var scrollFlag=false;},
+							"/tag/:tag": function(param) {this.tag(param);console.log('tag');var scrollFlag=false;},
+							"/archive": function() {this.archive();console.log('archive');var scrollFlag=false;}
 						});
 						Spine.Route.setup();
 					},
