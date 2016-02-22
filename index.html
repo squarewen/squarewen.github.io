@@ -162,7 +162,6 @@
 				var App = Spine.Controller.sub({
 					el: $("#main"),
 					init: function() {
-						alert(11);
 						this.routes({
 							"/page/:page": function(page) {this.go(page);},
 							"/tags": function() {this.tags();},
@@ -170,6 +169,25 @@
 							"/archive": function() {this.archive();}
 						});
 						Spine.Route.setup();
+						$('#site-nav').removeClass('navbar-solid');
+						$(window).load(function(){
+							handleTopNavAnimation();
+							$('.site-header').css("min-height", $(window).height());
+						});
+						$(window).scroll(function(){
+							handleTopNavAnimation();
+						});
+						$(window).resize(function(){
+							$('.site-header').css("min-height", $(window).height());
+						});
+						function handleTopNavAnimation() {
+							var top=$(window).scrollTop();
+							if(top>10){
+								$('#site-nav').addClass('navbar-solid'); 
+							}else{
+								$('#site-nav').removeClass('navbar-solid'); 
+							}
+						}
 					},
 					go: function(page) {
 						page = Math.floor(page.page);
@@ -187,6 +205,7 @@
 						$("#main").html(itemHtml);
 					},
 					tags: function() {
+						$('#site-nav').addClass('navbar-solid');
 						var ts = {};
 						var posts = data.posts;
 						var tf = function() {
@@ -258,26 +277,6 @@
 	});
 </script>
 
-<script>
-	$(window).load(function(){
-		handleTopNavAnimation();
-		$('.site-header').css("min-height", $(window).height());
-	});
-	$(window).scroll(function(){
-		handleTopNavAnimation();
-	});
-	$(window).resize(function(){
-		$('.site-header').css("min-height", $(window).height());
-	});
-	function handleTopNavAnimation() {
-		var top=$(window).scrollTop();
-		if(top>10){
-			$('#site-nav').addClass('navbar-solid'); 
-		}else{
-			$('#site-nav').removeClass('navbar-solid'); 
-		}
-	}
-</script>
 
 </body>
 </html>
