@@ -614,6 +614,7 @@ a:focus {
 .cnt-wrap .tag a {
 	padding: 1px 8px;
 	font-size: 14px;
+	font-style: normal;
 	font-family: 'Microsoft YaHei';
 	border-radius: 4px;
 	color: #FFF;
