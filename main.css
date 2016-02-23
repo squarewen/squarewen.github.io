@@ -595,10 +595,27 @@ a:focus {
 	max-width: 1100px;
 	margin: 80px auto;
 }
-
-/* 标签 */
-.tag {
-	color: #888;
+.cnt-wrap .tlt {
+	padding: 0 16px;
+	line-height: 32px;
+	font-size: 21px;
+	font-weight: 700;
+	font-family: 'Microsoft YaHei';
+	color: #424b50;
+}
+.cnt-wrap .tag {
+	padding: 0 16px;
+	font-style: italic;
+	font-size: 14px;
+	font-weight: 500;
+	color: #D5D5D5;
+}
+.cnt-wrap .tag a {
+	padding: 1px 8px;
+	font-size: 14px;
+	border-radius: 4px;
+	color: #FFF;
+	background-color: #D03B19;
 }
 
 /* 分类 */
