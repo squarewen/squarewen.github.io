@@ -519,7 +519,7 @@ a:focus {
 /* 首页文章列表 */
 .list {
 	max-width: 1100px;
-	margin: 10px auto 80px;
+	margin: 80px auto;
 	font-family: 'Microsoft YaHei';
 }
 .list .headline {
@@ -623,6 +623,10 @@ a:focus {
 .about {
 	max-width: 1100px;
 	margin: 80px auto;
+}
+.about img {
+	width: 996px;
+	height: 359px;
 }
 
 
