@@ -608,14 +608,17 @@ a:focus {
 	font-style: italic;
 	font-size: 14px;
 	font-weight: 500;
+	font-family: 'Microsoft YaHei';
 	color: #D5D5D5;
 }
 .cnt-wrap .tag a {
 	padding: 1px 8px;
 	font-size: 14px;
+	font-family: 'Microsoft YaHei';
 	border-radius: 4px;
 	color: #FFF;
 	background-color: #D03B19;
+	text-decoration: none;
 }
 
 /* 分类 */
