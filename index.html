@@ -64,7 +64,7 @@
 			<h2>前端 · 设计 · 灵感</h2>
 		</div>
 	</header>
-	<div class="list">
+	<div class="list mgrtop-10">
 		{{#posts}}
 		<div class="item">
 			<a href="{{path}}">{{title}}</a>
@@ -169,6 +169,10 @@
 						this.routes({
 							"": function(){
 								scrollFlag=true;
+								console.log($(window).width);
+								if($(window).width<768){
+									$('#pages').hide();
+								}
 								$('#pages li:first-child').addClass('active');
 								$(window).load(function(){
 									handleTopNavAnimation();
