@@ -362,9 +362,6 @@ a:focus {
 	-ms-flex-align: center;
 	align-items: center;
 }
-.mgrtop60 {
-	margin-top: 60px !important;
-}
 
 /* 导航 */
 .navbar-header {
@@ -454,6 +451,28 @@ a:focus {
 	}
 }
 
+/* 页脚 */
+.site-footer {
+	background-color: #F2F2F2;
+	color: #FFF;
+	text-align: center;
+	padding: 5px 0;
+}
+.site-footer img {
+	width: 50px;
+}
+.site-footer p {
+	margin: 8px 0;
+	padding: 5px 0 2px;
+	border-top: 1px solid #e3e3e3;
+	color: #bdbdb7;
+	font-family: 'Microsoft YaHei';
+	font-size: 12px;
+}
+.site-footer p span {
+	font-size: 14px;
+}
+
 /* 框架-首页/分类/文章 */
 .main {
 	position: relative;
@@ -502,6 +521,12 @@ a:focus {
 	max-width: 1100px;
 	margin: 10px auto 80px;
 	font-family: 'Microsoft YaHei';
+}
+.list .headline {
+	font-size: 30px;
+	font-weight: 700;
+	color: #D03B19;
+	border-bottom: 1px dotted #C8C8C8;
 }
 .list .item {
 	width: 70%;
@@ -570,7 +595,7 @@ a:focus {
 /* 分类 */
 .tags-ul {
 	max-width: 1100px;
-	margin: 60px auto 80px;
+	margin: 80px auto;
 	list-style: none;
 }
 .tags-ul li {
@@ -587,31 +612,17 @@ a:focus {
 /* 文章存档 */
 .archive {
 	max-width: 1100px;
-	margin: 60px auto 80px;
+	margin: 80px auto;
 }
 .archive > span {
 	color: #C5C5BD;
 	margin-right: 20px;
 }
 
-/* 页脚 */
-.site-footer {
-	background-color: #F2F2F2;
-	color: #FFF;
-	text-align: center;
-	padding: 5px 0;
+/* 关于 */
+.about {
+	max-width: 1100px;
+	margin: 80px auto;
 }
-.site-footer img {
-	width: 50px;
-}
-.site-footer p {
-	margin: 8px 0;
-	padding: 5px 0 2px;
-	border-top: 1px solid #e3e3e3;
-	color: #bdbdb7;
-	font-family: 'Microsoft YaHei';
-	font-size: 12px;
-}
-.site-footer p span {
-	font-size: 14px;
-}
+
+
