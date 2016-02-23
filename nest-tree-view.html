@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
-    <title>Simple</title>
+    <title>AngularJS实现无限嵌套树形结构</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
-    <link rel="stylesheet" type="text/css" href="/main.css" />
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+
+    <script src="http://cdn.bootcss.com/jquery/1.7/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="main">
-    <div class="header">
-    	<ul id="pages">
-            <li><a href="/">home</a></li>
-            <li><a href="/#/tags">tags</a></li>
-            <li><a href="/#/archive">archive</a></li>
-    	</ul>
-    </div>
-	<div class="wrap-header">
-	<h1>
-    <a href="/" id="title"></a>
-	</h1>
-	</div>
+    <!-- 导航 -->
+    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="site-brand">
+                    <a href="/" id="title"><img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-logo.png" alt="squarewen"></a>
+                </div>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-items">
+                <ul id="pages" class="nav navbar-nav navbar-right">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/#/archive">文章</a></li>
+                    <li><a href="/#/tags">分类</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 文章 -->
 <div id="md" style="display: none;">
 <!-- markdown -->
 ## AngularJS实现无限嵌套树形结构
@@ -221,13 +240,20 @@ JavaScript:
 <p><a href="http://jsbin.com/vefuqu/edit?html,js,output">在线实例</a></p>
 <!-- content end -->
 </div>
-<br>
-<br>
-    <div id="disqus_thread"></div>
-	<div class="footer">
-		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
-	</div>
-</div>
+
+    
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-gray.png" alt="squarewen">
+                    <p>Copyright <span>&copy;</span> 2016 Squarewen</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 <script src="main.js"></script>
 <script id="content" type="text/mustache">
     <h1>{{title}}</h1>
