@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- 导航 -->
-    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom navbar-solid">
         <div class="container">
             <div class="navbar-header">
                 <div class="site-brand">
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbar-items">
                 <ul id="pages" class="nav navbar-nav navbar-right">
                     <li><a href="/">首页</a></li>
-                    <li><a href="/#/archive">文章</a></li>
+                    <li class="active"><a href="/#/archive">文章</a></li>
                     <li><a href="/#/tags">分类</a></li>
                 </ul>
             </div>
@@ -42,6 +42,7 @@
     </nav>
     
     <!-- 文章 -->
+    <div id="main" class="main cnt-wrap">
 <div id="md" style="display: none;">
 <!-- markdown -->
 ## AngularJS实现无限嵌套树形结构
@@ -240,8 +241,7 @@ JavaScript:
 <p><a href="http://jsbin.com/vefuqu/edit?html,js,output">在线实例</a></p>
 <!-- content end -->
 </div>
-
-    
+    </div>
 
     <!-- 页脚 -->
     <footer class="site-footer">

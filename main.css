@@ -590,6 +590,12 @@ a:focus {
 	background-color: #000;
 }
 
+/* 文章正文 */
+.cnt-wrap {
+	max-width: 1100px;
+	margin: 80px auto;
+}
+
 /* 标签 */
 .tag {
 	color: #888;
