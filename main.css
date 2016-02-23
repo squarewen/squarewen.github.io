@@ -625,8 +625,7 @@ a:focus {
 	margin: 80px auto;
 }
 .about img {
-	width: 996px;
-	height: 359px;
+	width: 100%;
 }
 
 
