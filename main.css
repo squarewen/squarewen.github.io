@@ -578,6 +578,11 @@ a:focus {
 	display: inline-block;
 	margin: 15px;
 }
+.tags-ul li a {
+	color: #000;
+	font-family: 'Microsoft YaHei';
+	font-size: 24px;
+}
 
 
 /* 文章存档 */
