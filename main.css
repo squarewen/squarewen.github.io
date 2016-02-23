@@ -456,8 +456,6 @@ a:focus {
 
 /* 框架-首页/分类/文章 */
 .main {
-	max-width: 1100px;
-	margin-bottom: 80px;
 	position: relative;
 }
 
@@ -501,7 +499,8 @@ a:focus {
 
 /* 首页文章列表 */
 .list {
-	margin: 10px auto;
+	max-width: 1100px;
+	margin: 10px auto 80px;
 	font-family: 'Microsoft YaHei';
 }
 .list .item {
@@ -533,9 +532,6 @@ a:focus {
     font-weight: 500;
     color: #D5D5D5;
 }
-
-
-
 
 /* 页码 */
 .pages {
@@ -573,7 +569,8 @@ a:focus {
 
 /* 分类 */
 .tags-ul {
-	margin: 60px auto 30px;
+	max-width: 1100px;
+	margin: 60px auto 80px;
 	list-style: none;
 }
 .tags-ul li {
@@ -589,7 +586,8 @@ a:focus {
 
 /* 文章存档 */
 .archive {
-	margin: 10px;
+	max-width: 1100px;
+	margin: 60px auto 80px;
 }
 .archive > span {
 	color: #C5C5BD;
