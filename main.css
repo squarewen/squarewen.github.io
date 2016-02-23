@@ -495,7 +495,7 @@ a:focus {
 	font-weight: 500;
 }
 
-/* 首页欢迎图 */
+/* 首页文章列表 */
 .list {
 	max-width: 1100px;
 	margin: 10px auto;
@@ -567,6 +567,17 @@ a:focus {
 .tag {
 	color: #888;
 }
+
+/* 分类 */
+.tags-ul {
+	margin-top: 30px;
+	list-style: none;
+}
+.tags-ul li {
+	display: inline-block;
+	margin: 15px;
+}
+
 
 /* 文章存档 */
 .archive {
