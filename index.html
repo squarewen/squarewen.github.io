@@ -169,10 +169,7 @@
 						this.routes({
 							"": function(){
 								scrollFlag=true;
-								console.log($(window).width());
-								if($(window).width<768){
-									$('#pages').hide();
-								}
+								if($(window).width()<768) $('#pages').hide();
 								$('#pages li:first-child').addClass('active');
 								$(window).load(function(){
 									handleTopNavAnimation();
@@ -201,6 +198,7 @@
 							"/tags": function(){
 								this.tags();
 								scrollFlag=false;
+								if($(window).width()<768) $('#pages').hide();
 								$('#pages li').removeClass('active');
 								$('#pages li:eq(2)').addClass('active');
 								$('#site-nav').addClass('navbar-solid');
@@ -208,6 +206,7 @@
 							"/tag/:tag": function(param){
 								this.tag(param);
 								scrollFlag=false;
+								if($(window).width()<768) $('#pages').hide();
 								$('#pages li').removeClass('active');
 								$('#pages li:eq(2)').addClass('active');
 								$('#site-nav').addClass('navbar-solid');
@@ -215,6 +214,7 @@
 							"/archive": function(){
 								this.archive();
 								scrollFlag=false;
+								if($(window).width()<768) $('#pages').hide();
 								$('#pages li').removeClass('active');
 								$('#pages li:eq(1)').addClass('active');
 								$('#site-nav').addClass('navbar-solid');
