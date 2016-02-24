@@ -22,8 +22,7 @@
 .entry footer, 
 .entry header, 
 .entry ol, 
-.entry p, 
-.entry pre, 
+.entry p,
 .entry section, 
 .entry table, 
 .entry ul { 
@@ -41,7 +40,6 @@
 .entry header :first-child,
 .entry ol :first-child,
 .entry p :first-child,
-.entry pre :first-child,
 .entry section :first-child,
 .entry table :first-child,
 .entry ul :first-child { 
@@ -56,7 +54,6 @@
 .entry header :last-child,
 .entry ol :last-child,
 .entry p :last-child,
-.entry pre:last-child,
 .entry section :last-child,
 .entry table :last-child,
 .entry ul :last-child {
