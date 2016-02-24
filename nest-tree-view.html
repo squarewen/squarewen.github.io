@@ -47,65 +47,91 @@
 		<p>这里我们采用更ng way来实现这类常见的tree view结构。</p>
 		<p>首先我们定义数据结构，采用以children属性来挂接子节点方式来展现树层次结构，示例如下：</p>
 		<pre><code class="language-javascript">
-		[
-			{
-				"id":"1",
-				"pid":"0",
-				"name":"家用电器",
-				"children":[
-					{
-						"id":"4",
-						"pid":"1",
-						"name":"大家电"
-					}
-				]
-			},
-			{
+			[
+				{
+					"id":"1",
+					"pid":"0",
+					"name":"家用电器",
+					"children":[
+						{
+							"id":"4",
+							"pid":"1",
+							"name":"大家电"
+						}
+					]
+				},
+				{
+					...
+				}
 				...
-			}
-			...
-		]
+			]
 		</code></pre>
 		<p>则我们对于ng way的tree view可以实现为：</p>
 		<p>JavaScript:</p>
 		<pre><code class="language-javascript">
-		angular.module('ng.demo', []).directive('treeView',[function(){
-			return {
-				restrict: 'E',
-				templateUrl: '/treeView.html',
-				scope: {
-					treeData: '=',
-					canChecked: '=',
-					textField: '@',
-					itemClicked: '&',
-					itemCheckedChanged: '&'
-				},
-				controller:['$scope', function($scope){
-					$scope.itemExpended = function(item, $event){
-						item.$$isExpend = ! item.$$isExpend;
-						$event.stopPropagation();
-					};
-					$scope.isLeaf = function(item){
-						return !item.children || !item.children.length; 
-					};
-					$scope.warpCallback = function(callback, item, $event){
-						($scope[callback] || angular.noop)({
-							$item:item,
-							$event:$event
-						});
-					};
-				}]
-			};
+			angular.module('ng.demo', []).directive('treeView',[function(){
+				return {
+					restrict: 'E',
+					templateUrl: '/treeView.html',
+					scope: {
+						treeData: '=',
+						canChecked: '=',
+						textField: '@',
+						itemClicked: '&',
+						itemCheckedChanged: '&'
+					},
+					controller:['$scope', function($scope){
+						$scope.itemExpended = function(item, $event){
+							item.$$isExpend = ! item.$$isExpend;
+							$event.stopPropagation();
+						};
+						$scope.isLeaf = function(item){
+							return !item.children || !item.children.length; 
+						};
+						$scope.warpCallback = function(callback, item, $event){
+							($scope[callback] || angular.noop)({
+								$item:item,
+								$event:$event
+							});
+						};
+					}]
+				};
 		</code></pre>
 		<p>HTML:</p>
 		<p>树内容主题HTML： /treeView.html</p>
 		<pre><code class="language-markup">
-		&lt;ul class="tree-view">
-			&lt;li ng-repeat="item in treeData" ng-include="'/treeItem.html'">&lt;/li>
-		&lt;/ul>
+			&lt;ul class="tree-view">
+				&lt;li ng-repeat="item in treeData" ng-include="'/treeItem.html'">&lt;/li>
+			&lt;/ul>
 		</code></pre>
 		<p>每个item节点的HTML：/treeItem.html</p>
 
+		<pre><code class="language-markup">
+			&lt;i ng-click="itemExpended(item, $event);" class="fa" ng-class="{'fa-minus': !isLeaf(item)&& item.$$isExpend, 'fa-plus': !isLeaf(item)&&!item.$$isExpend, 'fa-leaf': isLeaf(item)}">&lt;/i>
+
+			&lt;input id="checkItem" type="checkbox" ng-model="item.$$isChecked" class="check-box" ng-if="canChecked" ng-change="warpCallback('itemCheckedChanged', item, $event)">
+
+			&lt;span class='text-field' ng-click="warpCallback('itemClicked', item, $event);">&lt;/span>
+			&lt;ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend">
+				&lt;li ng-repeat="item in item.children" ng-include="'/treeItem.html'">
+				&lt;/li>
+			&lt;/ul>
+		</code></pre>
+
+		<p>这里的技巧在于利用ng-include来加载子节点和数据，以及利用一个warpCallback方法来转接函数外部回调函数，利用angular.noop的空对象模式来避免未注册的回调场景。</p>
+		<p>我们就可以如下方式来使用这个tree-view：</p>
+
+		<pre><code class="language-markup">
+			&lt;tree-view tree-data="demo.tree" text-field="name" value-field='id' item-clicked="demo.itemClicked($item)" item-checked-changed="demo.itemCheckedChanged($item)" can-checked="true">
+			&lt;/tree-view>
+		</code></pre>
+
+		<p>效果如下：</p>
+		<img src="http://7xr2ee.com1.z0.glb.clouddn.com/angularjs%2Fng-tree-view-sample.png" alt="treeview">
+		<a href="http://jsbin.com/vefuqu/edit?html,js,output"></a>
+		<blockquote>
+			<p>转至 <a href="http://greengerong.com/blog/2015/09/02/angularshi-xian-di-gui-zhi-ling-tree-view/?utm_source=tuicool&amp;utm_medium=referral">http://greengerong.com/blog/2015/09/02/angularshi-xian-di-gui-zhi-ling-tree-view/?utm_source=tuicool&amp;utm_medium=referral</a></p>
+		</blockquote>
 	</div>
 
 	<!-- 页脚 -->
@@ -122,7 +148,7 @@
 <script src="main.js"></script>
 <script id="content" type="text/mustache">
 	<h1 class="tlt">{{title}}</h1>
-	<div class="tag">
+	<div class="cate">
 	{{date}}&nbsp;&nbsp;
 	{{#tags}}
 	<a href="/#/tag/{{name}}">{{name}}</a>

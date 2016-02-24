@@ -285,22 +285,21 @@ a:focus {
 	margin: 80px auto;
 }
 .cnt-wrap .tlt {
-	padding: 0 16px;
 	line-height: 32px;
 	font-size: 21px;
 	font-weight: 700;
 	font-family: 'Microsoft YaHei';
 	color: #424b50;
 }
-.cnt-wrap .tag {
-	padding: 0 16px;
+.cnt-wrap .cate {
+	padding: 0 0 20px 0;
 	font-style: italic;
 	font-size: 14px;
 	font-weight: 500;
 	font-family: 'Microsoft YaHei';
 	color: #D5D5D5;
 }
-.cnt-wrap .tag a {
+.cnt-wrap .cate a {
 	padding: 1px 8px;
 	font-size: 14px;
 	font-style: normal;
