@@ -98,13 +98,13 @@
 				};
 		</code></pre>
 		<p>HTML:</p>
-		<p>树内容主题HTML： /treeView.html</p>
+		<p>树内容主题HTML： <span class="hlt">/treeView.html</span></p>
 		<pre><code class="language-markup">
 			&lt;ul class="tree-view">
 				&lt;li ng-repeat="item in treeData" ng-include="'/treeItem.html'">&lt;/li>
 			&lt;/ul>
 		</code></pre>
-		<p>每个item节点的HTML：/treeItem.html</p>
+		<p>每个item节点的HTML：<span class="hlt">/treeItem.html</span></p>
 
 		<pre><code class="language-markup">
 			&lt;i ng-click="itemExpended(item, $event);" class="fa" ng-class="{'fa-minus': !isLeaf(item)&& item.$$isExpend, 'fa-plus': !isLeaf(item)&&!item.$$isExpend, 'fa-leaf': isLeaf(item)}">&lt;/i>
@@ -118,7 +118,7 @@
 			&lt;/ul>
 		</code></pre>
 
-		<p>这里的技巧在于利用ng-include来加载子节点和数据，以及利用一个warpCallback方法来转接函数外部回调函数，利用angular.noop的空对象模式来避免未注册的回调场景。</p>
+		<p>这里的技巧在于利用ng-include来加载子节点和数据，以及利用一个warpCallback方法来转接函数外部回调函数，利用<span class="hlt">angular.noop</span>的空对象模式来避免未注册的回调场景。</p>
 		<p>我们就可以如下方式来使用这个tree-view：</p>
 
 		<pre><code class="language-markup">
@@ -128,7 +128,7 @@
 
 		<p>效果如下：</p>
 		<img src="http://7xr2ee.com1.z0.glb.clouddn.com/angularjs%2Fng-tree-view-sample.png" alt="treeview">
-		<a href="http://jsbin.com/vefuqu/edit?html,js,output"></a>
+		<a href="http://jsbin.com/vefuqu/edit?html,js,output">在线实例</a>
 		<blockquote>
 			<p>转至 <a href="http://greengerong.com/blog/2015/09/02/angularshi-xian-di-gui-zhi-ling-tree-view/?utm_source=tuicool&amp;utm_medium=referral">http://greengerong.com/blog/2015/09/02/angularshi-xian-di-gui-zhi-ling-tree-view/?utm_source=tuicool&amp;utm_medium=referral</a></p>
 		</blockquote>
