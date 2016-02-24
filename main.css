@@ -16,8 +16,7 @@
 	-webkit-text-size-adjust: 100%; 
 	-ms-text-size-adjust: 100%;
 }
-.entry article, 
-.entry blockquote, 
+.entry article,  
 .entry div, 
 .entry figure, 
 .entry footer, 
@@ -212,6 +211,11 @@
 	line-height: 32px;
 	font-size: 16px;
 	text-align: left;
+}
+.entry blockquote {
+	margin: 20px 0;
+	font-size: 14px;
+	border-left: 5px solid #D03B19;
 }
 .entry span.hlt {
     padding: 0 .25em;
