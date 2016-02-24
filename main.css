@@ -28,8 +28,8 @@
 .entry ul { 
 	margin: 0;
 	padding: 0;
-	margin-top: 16px;
-	margin-bottom: 16px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .entry article :first-child, 
@@ -98,7 +98,7 @@
 
 .entry > img, 
 .entry > video { 
-	width: 100%;
+	max-width: 100%;
 	margin-top: 16px; 
 	margin-bottom: 16px;
 	display: block; 
@@ -219,17 +219,20 @@
 	border-left: 5px solid #D03B19;
 }
 .entry span.hlt {
-    padding: 0 .25em;
-    margin: 0 .25em;
-    background: #fee9cc;
-    font-family: consolas,monaco,monospace,serif;
-    font-size: 16px;
-    color: #424b50;
-    -webkit-border-radius: .25em;
-    -moz-border-radius: .25em;
-    -ms-border-radius: .25em;
-    -o-border-radius: .25em;
-    border-radius: .25em;
+	padding: 0 .25em;
+	margin: 0 .25em;
+	background: #fee9cc;
+	font-family: consolas,monaco,monospace,serif;
+	font-size: 16px;
+	color: #424b50;
+	-webkit-border-radius: .25em;
+	-moz-border-radius: .25em;
+	-ms-border-radius: .25em;
+	-o-border-radius: .25em;
+	border-radius: .25em;
+}
+.entry pre[class*="language-"] {
+	margin: 0;
 }
 
 /* 布局 */
@@ -500,6 +503,7 @@ a:focus {
 	margin: 80px auto;
 }
 .cnt-wrap .tlt {
+	padding: 0 16px;
 	line-height: 32px;
 	font-size: 21px;
 	font-weight: 700;
@@ -507,7 +511,7 @@ a:focus {
 	color: #424b50;
 }
 .cnt-wrap .cate {
-	padding: 0 0 20px 0;
+	padding: 0 16px 20px;
 	font-style: italic;
 	font-size: 14px;
 	font-weight: 500;
