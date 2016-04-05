@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="Keywords" content="blog"/>
+	<meta name="Description" content="blog"/>
+	<title>前端面试题汇总</title>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<script src="http://cdn.bootcss.com/jquery/1.7/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="prism.js"></script>
+</head>
+<body>
+	<!-- 导航 -->
+	<nav id="site-nav" class="navbar navbar-fixed-top navbar-custom navbar-solid">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="site-brand">
+					<a href="/" id="title"><img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-logo.png" alt="squarewen"></a>
+				</div>
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbar-items">
+				<ul id="pages" class="nav navbar-nav navbar-right">
+					<li><a href="/">首页</a></li>
+					<li class="active"><a href="/#/archive">文章</a></li>
+					<li><a href="/#/tags">分类</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+<!-- 文章 -->
+<div id="main" class="main cnt-wrap"><div class="entry">
+
+<!-- ↓正文内容↓ -->
+<p>1、考察this</p>
+<pre><code class="language-javascript">
+var length=10;
+function fn() {
+	console.log(this.length);
+}
+
+var obj={
+	length: 5,
+	method: function(fn) {
+		fn();
+		arguments[0]();
+	}
+};
+
+obj.method(fn, 1); 
+</code></pre>
+<p>输出：10 2</p>
+<p>解析：第一次输出10应该没有问题。我们知道取对象属于除了点操作符还可以用中括号，所以第二次执行时相当于arguments调用方法，this指向arguments，而这里传了两个参数，故输出arguments长度为2。</p>
+
+<blockquote>
+	<p>参考</p>
+	<p><a href="http://www.imooc.com/article/2520">http://www.imooc.com/article/2520</a></p>
+</blockquote>
+
+<!-- ↑正文内容↑ -->
+</div></div>
+
+	<!-- 页脚 -->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-gray.png" alt="squarewen">
+					<p>Copyright <span>&copy;</span> 2016 Squarewen</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+	<h1 class="tlt">{{title}}</h1>
+	<div class="cate">
+	{{date}}&nbsp;&nbsp;
+	{{#tags}}
+	<a href="/#/tag/{{name}}">{{name}}</a>
+	{{/tags}}
+	</div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+	{{#pages}}
+	<li>
+		<a href="{{path}}">{{title}}</a>
+	</li>
+	{{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		url: "main.json",
+		type: "GET",
+		dataType: "json",
+		success: function(data) {
+			//$("#title").html(data.name);
+			var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+			var pagesHtml = pagesTemplate.render({"pages": data.pages});
+			$("#pages").append(pagesHtml);
+			//path
+			var path = "interview.html";
+			//path end
+			var now = 0;
+			for (var i = 0; i < data.posts.length; ++i)
+				if (path == data.posts[i].path)
+					now = i;
+			var post = data.posts[now];
+			var tmp = post.tags.split(" ");
+			var tags = [];
+			for (var i = 0; i < tmp.length; ++i)
+				if (tmp[i].length > 0)
+					tags.push({"name": tmp[i]});
+			var contentTemplate = Hogan.compile($("#content").html());
+			var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+			$("#main").prepend(contentHtml);
+			if (data.disqus_shortname.length > 0) {
+				var disqus_shortname = data.disqus_shortname;
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			}
+		}
+	});
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
