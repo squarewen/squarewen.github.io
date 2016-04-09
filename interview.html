@@ -45,7 +45,7 @@
 <div id="main" class="main cnt-wrap"><div class="entry">
 
 <!-- ↓正文内容↓ -->
-<p>1 考察this</p>
+<p><b>1 考察this</b></p>
 <pre><code class="language-javascript">
 var length = 10;
 function fn() {
@@ -64,7 +64,7 @@ obj.method(fn, 1);
 </code></pre>
 <p>输出：10 2</p>
 <p>解析：第一次输出10应该没有问题。我们知道取对象属于除了点操作符还可以用中括号，所以第二次执行时相当于arguments调用方法，this指向arguments，而这里传了两个参数，故输出arguments长度为2。</p>
-<p>2 var和函数的提前声明</p>
+<p><b>2 var和函数的提前声明</b></p>
 <pre><code class="language-javascript">
 function fn(a) {
 	console.log(a); 
@@ -203,8 +203,8 @@ console.log(ans[0][0] + ': ' + ans[0].length);
 	&lt;/script>
 &lt;/body>
 </code></pre>
-&lt;p>闭包方法：&lt;/p>
-&lt;pre>&lt;code class="language-markup">
+<p>闭包方法：</p>
+<pre><code class="language-markup">
 &lt;!-- 实现一段脚本，使得点击对应链接alert出相应的编号 -->
 &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 &lt;body>
