@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="Keywords" content="blog"/>
+	<meta name="Description" content="blog"/>
+	<title>JavaScript算法</title>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<script src="http://cdn.bootcss.com/jquery/1.7/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="prism.js"></script>
+</head>
+<body>
+	<!-- 导航 -->
+	<nav id="site-nav" class="navbar navbar-fixed-top navbar-custom navbar-solid">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="site-brand">
+					<a href="/" id="title"><img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-logo.png" alt="squarewen"></a>
+				</div>
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbar-items">
+				<ul id="pages" class="nav navbar-nav navbar-right">
+					<li><a href="/">首页</a></li>
+					<li class="active"><a href="/#/archive">文章</a></li>
+					<li><a href="/#/tags">分类</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+<!-- 文章 -->
+<div id="main" class="main cnt-wrap"><div class="entry">
+
+<!-- ↓正文内容↓ -->
+<p><b>1 数组去掉重复项</b></p>
+<p>方法1</p>
+<pre><code class="language-javascript">
+	Array.prototype.unique1=function(){
+		var newArr=[];
+		for(var i=0; i<this.length; i++){
+			//当前数组第i个已经保存进了newArr数组，就跳过，否则加入newArr数组
+			if(newArr.indexOf(this[i])==-1) newArr.push(this[i]);
+		}
+		return newArr;
+	}
+	//调用
+	var arr=['red', 2, '2', '23', '2', '5', 'red'];
+	var newArr=arr.unique1();
+	console.log(newArr);
+</code></pre>
+<p>解析：indexOf方法是寻找参数在数组中第一次出现的位置，js引擎实现此方法会遍历数组，所以较耗时</p>
+
+<p>方法2</p>
+<pre><code class="language-javascript">
+	Array.prototype.unique2=function(){
+		var hashMap={}, newArr=[];
+		var val, type;
+		for(var i=0; i<this.length; i++){
+			val=this[i];
+			type=typeof val; //hash表中key值会被转换成字符串，为防止数组中有如1，“1”等不同类型的值，需记录值的类型
+			if(!hashMap[val]){
+				//如果hash表中没有数组当前项
+				hashMap[val]=[type]; //hash表中，key值为当前数组值，value值为数组值类型
+				newArr.push(val);
+			}else if(hashMap[val].indexOf(type)==-1){
+				//如果hash表中已有数组当前项，判断数组值类型是否一致，若不一致存入value值数组中
+				hashMap[val].push(type);
+				newArr.push(val);
+			}
+		}
+		return newArr;
+	}
+
+	var arr=['red', 2, '2', '23', '2', '5', 'red'];
+	var newArr=arr.unique2();
+	console.log(newArr);
+</code></pre>
+<p>解析：使用hash表把已经出现过的通过键值对形式存入一个Object内，下标的引用要比indexOf搜索数组快</p>
+
+<p>方法3</p>
+<pre><code class="language-javascript">
+	Array.prototype.unique3=function(){
+		this.sort(); //数组先排序
+		var newArr=[this[0]];
+		for(var i=1; i<this.length; i++){
+			if(this[i]!==newArr[newArr.length-1]){
+				newArr.push(this[i]);
+			}
+		}
+		return newArr;
+	}
+
+	var arr=['red', 2, '2', '23', '2', '5', 'red'];
+	var newArr=arr.unique3();
+	console.log(newArr);
+</code></pre>
+<p>解析：利用js原生sort方法对数组排序，再比较</p>
+
+
+<p><b>2 排序</b></p>
+
+
+
+<blockquote>
+	<p>引用参考</p>
+	<p><a href="http://blog.csdn.net/chengxuyuan20100425/article/details/8497277">http://blog.csdn.net/chengxuyuan20100425/article/details/8497277</a></p>
+</blockquote>
+
+<!-- ↑正文内容↑ -->
+</div></div>
+
+	<!-- 页脚 -->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-gray.png" alt="squarewen">
+					<p>Copyright <span>&copy;</span> 2016 Squarewen</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+	<h1 class="tlt">{{title}}</h1>
+	<div class="cate">
+	{{date}}&nbsp;&nbsp;
+	{{#tags}}
+	<a href="/#/tag/{{name}}">{{name}}</a>
+	{{/tags}}
+	</div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+	{{#pages}}
+	<li>
+		<a href="{{path}}">{{title}}</a>
+	</li>
+	{{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		url: "main.json",
+		type: "GET",
+		dataType: "json",
+		success: function(data) {
+			//$("#title").html(data.name);
+			var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+			var pagesHtml = pagesTemplate.render({"pages": data.pages});
+			$("#pages").append(pagesHtml);
+			//path
+			var path = "javascript-algorithm.html";
+			//path end
+			var now = 0;
+			for (var i = 0; i < data.posts.length; ++i)
+				if (path == data.posts[i].path)
+					now = i;
+			var post = data.posts[now];
+			var tmp = post.tags.split(" ");
+			var tags = [];
+			for (var i = 0; i < tmp.length; ++i)
+				if (tmp[i].length > 0)
+					tags.push({"name": tmp[i]});
+			var contentTemplate = Hogan.compile($("#content").html());
+			var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+			$("#main").prepend(contentHtml);
+			if (data.disqus_shortname.length > 0) {
+				var disqus_shortname = data.disqus_shortname;
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			}
+		}
+	});
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>

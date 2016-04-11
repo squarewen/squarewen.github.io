@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="Keywords" content="blog"/>
+	<meta name="Description" content="blog"/>
+	<title>Windows下设置react native开发环境遇到的坑</title>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="prism.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<script src="http://cdn.bootcss.com/jquery/1.7/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="prism.js"></script>
+</head>
+<body>
+	<!-- 导航 -->
+	<nav id="site-nav" class="navbar navbar-fixed-top navbar-custom navbar-solid">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="site-brand">
+					<a href="/" id="title"><img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-logo.png" alt="squarewen"></a>
+				</div>
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbar-items">
+				<ul id="pages" class="nav navbar-nav navbar-right">
+					<li><a href="/">首页</a></li>
+					<li class="active"><a href="/#/archive">文章</a></li>
+					<li><a href="/#/tags">分类</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+<!-- 文章 -->
+<div id="main" class="main cnt-wrap"><div class="entry">
+
+<!-- ↓正文内容↓ -->
+<p><b>1</b></p>
+<p>报错：</p>
+<pre><code>
+	Android SDK Manager won't update: connection to https://dl-ssl.google.com refused and Android SDK Manager could not install packages
+</code></pre>
+<p>解决方法：</p>
+<p>翻墙软件网络设置问题，将shadowsocks从PAC模式切换到Global模式</p>
+
+<p><b>2</b></p>
+<p>报错：</p>
+<pre><code>
+	emulator: ERROR: x86 emulation currently requires hardware acceleration!
+	Please ensure Intel HAXM is properly installed and usable.
+	CPU acceleration status: HAX kernel module is not installed!
+</code></pre>
+<p>解决方法：</p>
+<p>
+	First, Make sure you have installed <span class="hlt">HAXM installer</span> on your SDK Manager.
+	Second, After you download it and make sure you run the setup located in:<span class="hlt">{SDK_FOLDER}\extras\intel\Hardware_Accelerated_Execution_Manager\intelhaxm.exe</span>
+	Note: in Android Studio, the command "intelhaxm.exe" has been changed to "intelhaxm-android.exe"
+</p>
+<p>
+	Notes: If you get the error "<span class="hlt">VT not supported</span>" during the installation disable Hyper-V on windows features. You can execute this command <span class="hlt">dism.exe /Online /Disable-Feature:Microsoft-Hyper-V.</span> You will also need "Virtualization Technology" to be enabled on your BIOS
+</p>
+
+<p><b>3</b></p>
+<p>报错：</p>
+<pre><code>
+	Could not resolve all dependencies for configuration ':app:_debugCompile'.
+	Could not find com.android.support:appcompat-v7:23.0.1.
+</code></pre>
+<p>解决方法：</p>
+<p>
+	make sure install Extras|Local Maven repository for Support Libraries in the Android SDK Manager
+</p>
+
+<p><b>4</b></p>
+<p>报错：</p>
+<pre><code>
+	Could not download stetho.jar
+</code></pre>
+<p>解决方法：</p>
+<p>
+	Try that again and again
+</p>
+
+<!-- ↑正文内容↑ -->
+</div></div>
+
+	<!-- 页脚 -->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="http://7xr2ee.com1.z0.glb.clouddn.com/image%2Flion-gray.png" alt="squarewen">
+					<p>Copyright <span>&copy;</span> 2016 Squarewen</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+	<h1 class="tlt">{{title}}</h1>
+	<div class="cate">
+	{{date}}&nbsp;&nbsp;
+	{{#tags}}
+	<a href="/#/tag/{{name}}">{{name}}</a>
+	{{/tags}}
+	</div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+	{{#pages}}
+	<li>
+		<a href="{{path}}">{{title}}</a>
+	</li>
+	{{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		url: "main.json",
+		type: "GET",
+		dataType: "json",
+		success: function(data) {
+			//$("#title").html(data.name);
+			var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+			var pagesHtml = pagesTemplate.render({"pages": data.pages});
+			$("#pages").append(pagesHtml);
+			//path
+			var path = "react-native-setup.html";
+			//path end
+			var now = 0;
+			for (var i = 0; i < data.posts.length; ++i)
+				if (path == data.posts[i].path)
+					now = i;
+			var post = data.posts[now];
+			var tmp = post.tags.split(" ");
+			var tags = [];
+			for (var i = 0; i < tmp.length; ++i)
+				if (tmp[i].length > 0)
+					tags.push({"name": tmp[i]});
+			var contentTemplate = Hogan.compile($("#content").html());
+			var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+			$("#main").prepend(contentHtml);
+			if (data.disqus_shortname.length > 0) {
+				var disqus_shortname = data.disqus_shortname;
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			}
+		}
+	});
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>

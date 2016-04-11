@@ -10,10 +10,22 @@
 			"path": "nest-tree-view.html"
 		},
 		{
-			"title": "前端面试题汇总",
+			"title": "Windows下设置react native开发环境遇到的坑",
+			"date": "2016-02-08",
+			"tags": "React Native",
+			"path": "react-native-setup.html"
+		},
+		{
+			"title": "前端面试题——Javascript代码题",
 			"date": "2016-02-14",
 			"tags": "综合",
 			"path": "interview.html"
+		},
+		{
+			"title": "JavaScript算法",
+			"date": "2016-02-15",
+			"tags": "JavaScript",
+			"path": "javascript-algorithm.html"
 		}
 	],
 	"pages": [
