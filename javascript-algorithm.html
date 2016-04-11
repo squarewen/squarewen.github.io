@@ -45,7 +45,72 @@
 <div id="main" class="main cnt-wrap"><div class="entry">
 
 <!-- ↓正文内容↓ -->
-1
+<p><b>1 数组去掉重复项</b></p>
+<p>方法1</p>
+<pre><code class="language-javascript">
+	Array.prototype.unique1=function(){
+		var newArr=[];
+		for(var i=0; i&lt;this.length; i++){
+			//当前数组第i个已经保存进了newArr数组，就跳过，否则加入newArr数组
+			if(newArr.indexOf(this[i])==-1) newArr.push(this[i]);
+		}
+		return newArr;
+	}
+	//调用
+	var arr=['red', 2, '2', '23', '2', '5', 'red'];
+	var newArr=arr.unique1();
+	console.log(newArr);
+</code></pre>
+<p>解析：indexOf方法是寻找参数在数组中第一次出现的位置，js引擎实现此方法会遍历数组，所以较耗时</p>
+
+<p>方法2</p>
+<pre><code class="language-javascript">
+	Array.prototype.unique2=function(){
+		var hashMap={}, newArr=[];
+		var val, type;
+		for(var i=0; i&lt;this.length; i++){
+			val=this[i];
+			type=typeof val; //hash表中key值会被转换成字符串，为防止数组中有如1，“1”等不同类型的值，需记录值的类型
+			if(!hashMap[val]){
+				//如果hash表中没有数组当前项
+				hashMap[val]=[type]; //hash表中，key值为当前数组值，value值为数组值类型
+				newArr.push(val);
+			}else if(hashMap[val].indexOf(type)==-1){
+				//如果hash表中已有数组当前项，判断数组值类型是否一致，若不一致存入value值数组中
+				hashMap[val].push(type);
+				newArr.push(val);
+			}
+		}
+		return newArr;
+	}
+
+	var arr=['red', 2, '2', '23', '2', '5', 'red'];
+	var newArr=arr.unique2();
+	console.log(newArr);
+</code></pre>
+<p>解析：使用hash表把已经出现过的通过键值对形式存入一个Object内，下标的引用要比indexOf搜索数组快</p>
+
+<p>方法3</p>
+<pre><code class="language-javascript">
+	Array.prototype.unique3=function(){
+		this.sort(); //数组先排序
+		var newArr=[this[0]];
+		for(var i=1; i&lt;this.length; i++){
+			if(this[i]!==newArr[newArr.length-1]){
+				newArr.push(this[i]);
+			}
+		}
+		return newArr;
+	}
+
+	var arr=['red', 2, '2', '23', '2', '5', 'red'];
+	var newArr=arr.unique3();
+	console.log(newArr);
+</code></pre>
+<p>解析：利用js原生sort方法对数组排序，再比较</p>
+
+
+<p><b>2 排序</b></p>
 
 
 
