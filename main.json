@@ -10,6 +10,12 @@
 			"path": "nest-tree-view.html"
 		},
 		{
+			"title": "web app/hybrid app/native app开发模式比较",
+			"date": "2016-02-12",
+			"tags": "App",
+			"path": "mobile-dev-path.html"
+		},
+		{
 			"title": "Windows下设置react native开发环境遇到的坑",
 			"date": "2016-02-08",
 			"tags": "React-Native",
